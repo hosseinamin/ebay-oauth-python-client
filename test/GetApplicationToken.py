@@ -16,6 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 """
+from __future__ import print_function
 import os, sys
 sys.path.insert(0, os.path.join(os.path.split(__file__)[0], '..'))
 from oauthclient.oauth2api import oauth2api
@@ -36,7 +37,7 @@ class TestGetApplicationCredential(unittest.TestCase):
         app_token = oauth2api_inst.get_application_token(environment.SANDBOX, invalid_app_scopes)
         self.assertIsNone(app_token.access_token)
         self.assertIsNotNone(app_token.error)
-        print '\n *** test_invalid_oauth_scope ***\n', app_token
+        print('\n *** test_invalid_oauth_scope ***\n', app_token)
     
 
     def test_client_credentials_grant_sandbox(self):
@@ -47,7 +48,7 @@ class TestGetApplicationCredential(unittest.TestCase):
         self.assertIsNone(app_token.error)
         self.assertIsNotNone(app_token.access_token)
         self.assertTrue(len(app_token.access_token) > 0)
-        print '\n *** test_client_credentials_grant_sandbox ***:\n', app_token   
+        print('\n *** test_client_credentials_grant_sandbox ***:\n', app_token)
 
         
     def test_client_credentials_grant_production(self):
@@ -58,7 +59,7 @@ class TestGetApplicationCredential(unittest.TestCase):
         self.assertIsNone(app_token.error)
         self.assertIsNotNone(app_token.access_token)
         self.assertTrue(len(app_token.access_token) > 0)
-        print '\n *** test_client_credentials_grant_production ***:\n', app_token   
+        print('\n *** test_client_credentials_grant_production ***:\n', app_token)
 
 
 if __name__ == '__main__':
