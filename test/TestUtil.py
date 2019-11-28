@@ -54,6 +54,10 @@ def get_authorization_code(signin_url):
     
     userid = _user_credential_list[env_key][0]
     password = _user_credential_list[env_key][1]
+
+    return get_authorization_code_for_user(signin_url, userid, password)
+
+def get_authorization_code_for_user(signin_url, userid, password):
     
     browser = webdriver.Chrome()
     browser.get(signin_url)
